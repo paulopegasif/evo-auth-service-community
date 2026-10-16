@@ -50,10 +50,10 @@ class SetupBootstrapService
 
     RuntimeConfig.set('account', {
       id:            SecureRandom.uuid,
-      name:          'Evolution Community',
-      domain:        'localhost',
+      name:          ENV.fetch('ORGANIZATION_NAME', 'Evolution Community'),
+      domain:        ENV.fetch('ORGANIZATION_DOMAIN', 'localhost'),
       support_email: @email,
-      locale:        'en',
+      locale:        ENV.fetch('DEFAULT_LOCALE', 'pt-BR'),
       status:        'active',
       features:      {},
       settings:      {},
